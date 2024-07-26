@@ -46,6 +46,9 @@ export class AddRentalComponent {
         rentalDueDate: undefined,
         rentalAmount: 0
     }
+    quantity: number | undefined;
+
+
 
     onAddRental() {
         this.service.saveRental(this.rental);
@@ -53,7 +56,7 @@ export class AddRentalComponent {
 
     private loadItemList() {
         this.itemService.findAllItems().subscribe(
-
+            data => this.itemList = data,
         )
     }
 }

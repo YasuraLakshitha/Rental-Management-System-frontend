@@ -4,12 +4,26 @@
         <div class="col-4">
 
             <div>
-                <label for="user" class="form-label">Select User Id</label>
+                <label for="user" class="form-label">Select Customer Id</label>
                 <select class="form-select" id="user">
                     <option *ngFor="let customer of customerList" [value]="customer.customerId">
-                        {{ customer.customerId }}
+                        {{ customer.customerName }}
                     </option>
                 </select>
+            </div>
+
+            <div>
+                <label for="user" class="form-label">Select Item Id</label>
+                <select  class="form-select" id="item">
+                    <option *ngFor="let item of itemList" [value]="item.itemId">
+                        {{ item.itemName }}
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                <label for="qty" class="form-label">Enter Item Quantity</label>
+                <input [(ngModel)]="quantity" type="date" class="form-control" id="qty">
             </div>
 
             <div>
@@ -27,7 +41,7 @@
 
             <div>
                 <label for="rentalAmount" class="form-label">Rental Amount</label>
-                <input [(ngModel)]="rental.rentalAmount" type="number" class="form-control" id="rentalAmount">
+                <input [(ngModel)]="rental.rentalAmount"  type="number" class="form-control" id="rentalAmount">
             </div>
 
             <div class="mt-3">
