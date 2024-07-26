@@ -1,0 +1,83 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Count</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Rent Per day</th>
+        <th scope="col">Fine Per Day</th>
+        <th scope="col">Availability</th>
+        <th scope="col">#</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of itemList ; index as i; first as isFirst">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ item.itemName }}</td>
+        <td>{{ item.rentPerDay }}</td>
+        <td>{{ item.finePerDay }}</td>
+        <td>{{ item.availability }}</td>
+        <td>
+            <button (click)="onUpdateItem(item)" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#btnUpdateModal">
+                Update
+            </button>
+            <button type="button" (click)="onDeleteItem(item)" class=" ms-2 btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeItem">
+                Remove
+            </button>
+        </td>
+</table>
+
+
+<div class="modal fade" id="btnUpdateModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="">Update Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label for="itemName" class="form-label">Enter Item Name</label>
+                    <input [(ngModel)]="selectedItem.itemName" [value]="selectedItem.itemName" type="text"
+                           class="form-control" id="itemName">
+                </div>
+                <div>
+                    <label for="rentalPerDay" class="form-label">Enter rental per day</label>
+                    <input [(ngModel)]="selectedItem.rentPerDay" type="number" class="form-control" id="rentalPerDay">
+                </div>
+                <div>
+                    <label for="finePerDay" class="form-label">Enter fine per day</label>
+                    <input [(ngModel)]="selectedItem.finePerDay" [value]="selectedItem.finePerDay" type="number"
+                           class="form-control" id="finePerDay">
+                </div>
+                <div>
+                    <label for="availability" class="form-label">Availability</label>
+                    <input [(ngModel)]="selectedItem.availability" [value]="selectedItem.availability" type="text"
+                           class="form-control" id="availability">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="onSaveChanges()" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="removeItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Remove Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove this item
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="onDeleteConfirm()" class="btn btn-danger">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>

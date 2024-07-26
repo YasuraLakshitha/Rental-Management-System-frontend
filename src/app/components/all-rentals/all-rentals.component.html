@@ -1,0 +1,97 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Count</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Rent Per day</th>
+        <th scope="col">Fine Per Day</th>
+        <th scope="col">Availability</th>
+        <th scope="col">#</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let rental of rentals ; index as i; first as isFirst">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ rental.rentalDate }}</td>
+        <td>{{ rental.returnDate }}</td>
+        <td>{{ rental.rentalDueDate }}</td>
+        <td>{{ rental.rentalAmount }}</td>
+        <td>
+            <button (click)="onUpdateRental(rental)" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#updateRental">
+                Update
+            </button>
+            <button type="button" class=" ms-2 btn btn-danger" data-bs-toggle="modal" data-bs-target="#">
+                Remove
+            </button>
+        </td>
+</table>
+
+<div class="modal fade" id="updateRental" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Remove Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label for="rentalDate" class="form-label">Enter Rental Date</label>
+                    <input [(ngModel)]="selecctedRental.rentalDate" type="date" class="form-control" id="rentalDate">
+                </div>
+                <div>
+                    <label for="returnDate" class="form-label">Enter return date</label>
+                    <input  [(ngModel)]="selecctedRental.returnDate" type="date" class="form-control" id="returnDate">
+                </div>
+                <div>
+                    <label for="rentalDueDate" class="form-label">Enter rental due date</label>
+                    <input  [(ngModel)]="selecctedRental.rentalDueDate" type="date" class="form-control" id="rentalDueDate">
+                </div>
+
+                <div>
+                    <label for="rentalAmount" class="form-label">Rental Amount</label>
+                    <input  [(ngModel)]="selecctedRental.rentalAmount" type="number" class="form-control" id="rentalAmount">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="onSaveChanges()" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="removeRental" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="#">Remove Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label for="rentalDateRemove" class="form-label">Enter Rental Date</label>
+                    <input [(ngModel)]="selecctedRental.rentalDate" type="date" class="form-control" id="rentalDateRemove">
+                </div>
+                <div>
+                    <label for="returnDateRemove" class="form-label">Enter return date</label>
+                    <input  [(ngModel)]="selecctedRental.returnDate" type="date" class="form-control" id="returnDateRemove">
+                </div>
+                <div>
+                    <label for="rentalDueDateRemove" class="form-label">Enter rental due date</label>
+                    <input  [(ngModel)]="selecctedRental.rentalDueDate" type="date" class="form-control" id="rentalDueDateRemove">
+                </div>
+
+                <div>
+                    <label for="rentalAmountRemove" class="form-label">Rental Amount</label>
+                    <input  [(ngModel)]="selecctedRental.rentalAmount" type="number" class="form-control" id="rentalAmountRemove">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="onDelete()" class="btn btn-primary">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div>
+                <label for="rentalDate" class="form-label">Enter Rental Date</label>
+                <input [(ngModel)]="rental.rentalDate" type="date" class="form-control" id="rentalDate">
+            </div>
+            <div>
+                <label for="returnDate" class="form-label">Enter return date</label>
+                <input  [(ngModel)]="rental.returnDate" type="date" class="form-control" id="returnDate">
+            </div>
+            <div>
+                <label for="rentalDueDate" class="form-label">Enter rental due date</label>
+                <input  [(ngModel)]="rental.rentalDueDate" type="date" class="form-control" id="rentalDueDate">
+            </div>
+
+            <div>
+                <label for="rentalAmount" class="form-label">Rental Amount</label>
+                <input  [(ngModel)]="rental.rentalAmount" type="number" class="form-control" id="rentalAmount">
+            </div>
+
+            <div class="mt-3">
+                <button (click)="onAddRental()" class="btn btn-primary">Add Rental</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>
+

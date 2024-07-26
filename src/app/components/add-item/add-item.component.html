@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div>
+                <label for="itemName" class="form-label">Enter Item Name</label>
+                <input [(ngModel)]="item.itemName" type="text" class="form-control" id="itemName">
+            </div>
+            <div>
+                <label for="rentalPerDay" class="form-label">Enter rental per day</label>
+                <input  [(ngModel)]="item.rentPerDay" type="number" class="form-control" id="rentalPerDay">
+            </div>
+            <div>
+                <label for="finePerDay" class="form-label">Enter fine per day</label>
+                <input  [(ngModel)]="item.finePerDay" type="number" class="form-control" id="finePerDay">
+            </div>
+            <div>
+                <label for="availability" class="form-label">Availability</label>
+                <input [(ngModel)]="item.availability" type="text" class="form-control" id="availability">
+            </div>
+            <div class="mt-3">
+                <button (click)="onAddItem()" class="btn btn-primary">Add Item</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>
+
