@@ -1,0 +1,79 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Count</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Customer User Name</th>
+        <th scope="col">Customer User Email</th>
+        <th scope="col">#</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of customerList ; index as i; first as isFirst">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ customer.customerName }}</td>
+        <td>{{ customer.username }}</td>
+        <td>{{ customer.customerEmail }}</td>
+        <td>
+            <button (click)="onUpdateCustomer(customer)" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#updateRental">
+                Update
+            </button>
+            <button (click)="onDeleteCustomer(customer)" type="button" class=" ms-2 btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeCustomer">
+                Remove
+            </button>
+        </td>
+</table>
+
+<div class="modal fade" id="updateRental" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Remove Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label for="customerName" class="form-label">Enter Customer Name</label>
+                    <input [(ngModel)]="selectedCustomer.customerName" type="text" class="form-control" id="customerName">
+                </div>
+                <div>
+                    <label for="customerUserName" class="form-label">Enter Customer User Name</label>
+                    <input [(ngModel)]="selectedCustomer.username" type="text" class="form-control" id="customerUserName">
+                </div>
+                <div>
+                    <label for="customerEmail" class="form-label">Enter Customer Email</label>
+                    <input [(ngModel)]="selectedCustomer.customerEmail" type="email" class="form-control" id="customerEmail">
+                </div>
+                <div>
+                    <label for="customerPassword" class="form-label">Enter Password</label>
+                    <input [(ngModel)]="selectedCustomer.password" type="password" class="form-control" id="customerPassword">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="onSaveChanges()" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="removeCustomer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Remove Customer</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove this Customer
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="onDeleteConfirm()" class="btn btn-danger">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

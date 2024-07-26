@@ -45,7 +45,11 @@ export class AllRentalsComponent {
     this.service.updateRental(this.selecctedRental)
   }
 
-  onDelete() {
+  onDeleteRental(rental: Rental): void {
+        this.selecctedRental = rental;
+  }
+
+  onDeleteConfirm(): void {
     this.service.deleteRental(this.selecctedRental)
   }
 }

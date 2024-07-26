@@ -3,12 +3,20 @@
         <div class="col-4"></div>
         <div class="col-4">
             <div>
+                <label for="customerName" class="form-label">Enter Customer Name</label>
+                <input [(ngModel)]="customer.customerName" type="text" class="form-control" id="customerName">
+            </div>
+            <div>
                 <label for="customerUserName" class="form-label">Enter Customer User Name</label>
                 <input [(ngModel)]="customer.username" type="text" class="form-control" id="customerUserName">
             </div>
             <div>
+                <label for="customerEmail" class="form-label">Enter Customer Email</label>
+                <input [(ngModel)]="customer.customerEmail" type="email" class="form-control" id="customerEmail">
+            </div>
+            <div>
                 <label for="customerPassword" class="form-label">Enter Password</label>
-                <input  [(ngModel)]="customer.password" type="password" class="form-control" id="customerPassword">
+                <input [(ngModel)]="customer.password" type="password" class="form-control" id="customerPassword">
             </div>
             <div class="mt-3">
                 <button (click)="onSaveCustomer()" class="btn btn-primary">Add Customer</button>
